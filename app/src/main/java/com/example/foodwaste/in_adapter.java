@@ -43,7 +43,7 @@ public class in_adapter extends RecyclerView.Adapter<in_adapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "sport : "+data.get(position).getFood_name(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, data.get(position).getFood_name(), Toast.LENGTH_SHORT).show();
             }
         });
 
