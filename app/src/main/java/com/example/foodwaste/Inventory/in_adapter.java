@@ -24,6 +24,11 @@ public class in_adapter extends RecyclerView.Adapter<in_adapter.MyViewHolder> {
         this.data = data;
     }
 
+    public void setData(List<Inventory_item> newData) {
+        data = newData;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

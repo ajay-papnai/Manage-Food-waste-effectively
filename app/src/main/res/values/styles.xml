@@ -13,20 +13,10 @@
         <item name="android:background">@color/colorPrimary</item>
         <item name="itemIconTint">@color/bottom_nav_item_colors</item>
         <item name="itemTextColor">@color/bottom_nav_item_colors</item>
-        <item name="itemTextAppearanceActive">@style/BottomNavTextAppearanceActive</item>
-        <item name="itemTextAppearanceInactive">@style/BottomNavTextAppearanceInactive</item>
+
     </style>
 
-    <!-- Style for the selected bottom navigation item text -->
-    <style name="BottomNavTextAppearanceActive" parent="@style/TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-    </style>
 
-    <!-- Style for the unselected bottom navigation item text -->
-    <style name="BottomNavTextAppearanceInactive" parent="@style/TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">#9E9E9E</item>
-    </style>
 
 
 

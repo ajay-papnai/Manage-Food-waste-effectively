@@ -24,8 +24,6 @@
         app:itemIconTint="@color/bottom_nav_item_colors"
         app:itemTextColor="@color/bottom_nav_item_colors"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:itemTextAppearanceActive="@style/BottomNavTextAppearanceActive"
-        app:itemTextAppearanceInactive="@style/BottomNavTextAppearanceInactive"
         app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

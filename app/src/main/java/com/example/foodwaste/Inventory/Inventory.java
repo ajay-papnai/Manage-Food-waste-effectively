@@ -3,6 +3,8 @@ package com.example.foodwaste.Inventory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +26,7 @@ public class Inventory extends Fragment {
     List<Inventory_item> data ;
 
     public in_adapter adapter ;
+    private InventoryViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,20 +38,26 @@ public class Inventory extends Fragment {
         floatingActionButton = view.findViewById(R.id.floatingActionButton);
         recyclerView = view.findViewById(R.id.recyclerView);
 
+        viewModel = new ViewModelProvider(requireActivity()).get(InventoryViewModel.class);
+
         data = new ArrayList<>();
-
-        data.add(new Inventory_item("Apple", "5", "2023-05-01", "2023-05-10"));
-        data.add(new Inventory_item("Banana", "3", "2023-05-03", "2023-05-08"));
-
-        data.add(new Inventory_item("Mango", "5", "2023-05-01", "2023-05-10"));
-        data.add(new Inventory_item("Bread", "3", "2023-05-03", "2023-05-08"));
-
-        data.add(new Inventory_item("Butter", "5", "2023-05-01", "2023-05-10"));
-        data.add(new Inventory_item("Milk", "3", "2023-05-03", "2023-05-08"));
 
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
+
+        viewModel.getInventoryLiveData().observe(getViewLifecycleOwner(), new Observer<List<Inventory_item>>() {
+            @Override
+            public void onChanged(List<Inventory_item> inventoryItems) {
+                adapter.setData(inventoryItems);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        adapter =new in_adapter(getActivity() , data);
+        recyclerView.setAdapter(adapter);
+
+
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +67,7 @@ public class Inventory extends Fragment {
             }
         });
 
-        adapter =new in_adapter(getActivity() , data);
-        recyclerView.setAdapter(adapter);
+
 
         return view;
     }
