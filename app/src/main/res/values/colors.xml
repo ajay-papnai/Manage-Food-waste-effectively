@@ -5,12 +5,27 @@
 
 
 
+        <!-- Light mode colors -->
+        <color name="edit_text_background">#FFFFFF</color>
+        <color name="edit_text_text_color">#000000</color>
+        <color name="edit_text_hint_color">#888888</color>
+        <color name="button_text_color">#FFFFFF</color>
+        <color name="button_background">#6200EE</color>
+        <color name="background_color">#F0F0F0</color>
+        <color name="text_color">#000000</color>
+
+
+
+
+
+
+
 
     <color name="textSecondary">#757575</color> <!-- Light gray for secondary text -->
 
 
 
-    <color name="cardViewBackground">#FF5722</color> <!-- Attractive deep orange color -->
+    <color name="cardViewBackground">#FF5722</color>
     <color name="textPrimary">#212121</color> <!-- Dark gray for primary text -->
 
 

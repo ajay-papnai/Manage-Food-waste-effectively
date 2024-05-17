@@ -1,4 +1,4 @@
-package com.example.foodwaste;
+package com.example.foodwaste.Cart;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodwaste.Cart.sh_adapter;
+import com.example.foodwaste.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

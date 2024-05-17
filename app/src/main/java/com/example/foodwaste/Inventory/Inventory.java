@@ -1,4 +1,4 @@
-package com.example.foodwaste;
+package com.example.foodwaste.Inventory;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodwaste.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -48,6 +49,14 @@ public class Inventory extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IN_bottom bottomsheet = new IN_bottom();
+                bottomsheet.show(getActivity().getSupportFragmentManager(), "bottomsheet");
+            }
+        });
 
         adapter =new in_adapter(getActivity() , data);
         recyclerView.setAdapter(adapter);

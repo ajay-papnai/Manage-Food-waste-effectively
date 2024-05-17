@@ -1,4 +1,4 @@
-package com.example.foodwaste;
+package com.example.foodwaste.Inventory;
 
 public class Inventory_item {
 

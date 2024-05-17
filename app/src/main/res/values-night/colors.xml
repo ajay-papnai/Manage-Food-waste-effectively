@@ -1,0 +1,10 @@
+<resources>
+    <!-- Dark mode colors -->
+    <color name="edit_text_background">#333333</color>
+    <color name="edit_text_text_color">#FFFFFF</color>
+    <color name="edit_text_hint_color">#BBBBBB</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <color name="button_background">#BB86FC</color>
+    <color name="background_color">#121212</color>
+    <color name="text_color">#FFFFFF</color>
+</resources>

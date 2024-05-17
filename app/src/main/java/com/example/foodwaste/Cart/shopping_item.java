@@ -1,4 +1,4 @@
-package com.example.foodwaste;
+package com.example.foodwaste.Cart;
 
 public class shopping_item {
     private String grocery;
