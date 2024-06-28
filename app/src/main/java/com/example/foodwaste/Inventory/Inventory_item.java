@@ -1,5 +1,7 @@
 package com.example.foodwaste.Inventory;
 
+import java.util.Objects;
+
 public class Inventory_item {
 
     private String food_name;
@@ -47,5 +49,21 @@ public class Inventory_item {
 
     public void setExpiry(String expiry) {
         this.expiry = expiry;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inventory_item that = (Inventory_item) o;
+        return Objects.equals(food_name, that.food_name) &&
+                Objects.equals(qty, that.qty) &&
+                Objects.equals(purchase, that.purchase) &&
+                Objects.equals(expiry, that.expiry);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(food_name, qty, purchase, expiry);
     }
 }

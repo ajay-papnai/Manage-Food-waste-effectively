@@ -16,6 +16,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.foodwaste.Inventory.Inventory_item;
 import com.example.foodwaste.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,9 +33,16 @@ public class IN_bottom extends BottomSheetDialogFragment {
     Calendar purchaseDateCalendar;
     private InventoryViewModel viewModel;
 
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore firebaseFirestore;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_i_n_bottom, container, false);
 
@@ -105,6 +114,7 @@ public class IN_bottom extends BottomSheetDialogFragment {
                 if(!Item.isEmpty()  && !QTY.isEmpty()  && !Pdate.isEmpty()  & !Edate.isEmpty()){
 
                     Inventory_item inventoryItem = new Inventory_item(Item, QTY, Pdate, Edate);
+                    //addItemToFirestore(inventoryItem);
                     viewModel.addInventoryItem(inventoryItem);
                     dismiss();
                 }
@@ -121,5 +131,13 @@ public class IN_bottom extends BottomSheetDialogFragment {
         String format = "dd-MM-yyyy";  // Correct date format
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.US);
         editText.setText(sdf.format(calendar.getTime()));
+    }
+
+    private void addItemToFirestore(Inventory_item item) {
+        String userId = firebaseAuth.getCurrentUser().getUid();
+        firebaseFirestore.collection("Users").document(userId).collection("Inventory")
+                .add(item)
+                .addOnSuccessListener(documentReference -> Toast.makeText(getActivity(), "Item added to Firestore", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e -> Toast.makeText(getActivity(), "Failed to add item: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 }
