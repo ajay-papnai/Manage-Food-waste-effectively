@@ -14,9 +14,9 @@
     <color name="text_color">#000000</color>
 
 
-    <color name="cardViewBackground">#FF5722</color>
+    <color name="cardViewBackground">#6ABDC8</color>
     <color name="textPrimary">#212121</color> <!-- Dark gray for primary text -->
-    <color name="textSecondary">#C54040</color> <!-- Light gray for secondary text -->
+    <color name="textSecondary">#FFFFFF</color> <!-- Light gray for secondary text -->
 
 
     <color name="colorPrimary">#0CD8D8</color>

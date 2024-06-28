@@ -5,7 +5,7 @@
     <color name="edit_text_hint_color">#BBBBBB</color>
     <color name="button_text_color">#FFFFFF</color>
     <color name="button_background">#495AB1</color>
-    <color name="background_color">#121212</color>
+    <color name="background_color">#F0F0F0</color>
     <color name="text_color">#FFFFFF</color>
 
     <color name="colorPrimary">#3BDADA</color>
